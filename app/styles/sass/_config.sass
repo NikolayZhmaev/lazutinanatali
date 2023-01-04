@@ -1,0 +1,67 @@
+// USER VARIABLES SECTION
+
+$accent: #61BE97 // Accent Color
+$fontsize: 30px // Body Font Size
+$textcolor: #49576A // Text Color
+$leftpanel: #E7F9FF
+$size: 80px
+$lineheight: 1.4 // Document Line Height
+$userfont: roboto-my, sans-serif // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/_utilities.scss' // Optional Bootstrap Utilites
+@import 'node_modules/swiper/swiper-bundle'
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('roboto-my', bold, 700, '../font/roboto-bold-webfont.woff2')
+@include font('roboto-my', regular, 400, '../fonts/roboto-regular-webfont.woff2')
+@include font('JejuMyeongjo-my', regular, 400, '../fonts/JejuMyeongjo-Regular.ttf')
+@include font('felidae-my', regular, 400, '../fonts/Felidae.ttf')
+@include font('anekBangla-my', regular, 400, '../fonts/AnekBangla-Regular.ttf')
+@include font('anekBangla-my', medium, 500, '../fonts/AnekBangla-Medium.ttf')
+@include font('akshar-my', regular, 400, '../fonts/Akshar-Regular.ttf')
+@include font('akshar-my', bold, 700, '../fonts/Akshar-Bold.ttf')
+@include font('akshar-my', semibold, 600, '../fonts/Akshar-SemiBold.ttf')
+
+
+// GENERAL CSS SETTINGS
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $userfont
+	font-size: $fontsize
+	line-height: $lineheight
+	color: $textcolor
+	min-width: 320px
+	position: relative
+	overflow-x: hidden

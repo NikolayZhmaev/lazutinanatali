@@ -1,0 +1,124 @@
+.product-card {
+	position: relative;
+	min-width: 465px;
+	height: 310px;
+	border-radius: 20px;
+	color: #fff;
+	font-family: roboto-my, sans-serif;
+	overflow: hidden;
+	background: transparent;
+	margin-right: 40px;
+}
+
+.front-link {
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	font-weight: 700;
+	font-size: 14px;
+	opacity: 0.6;
+
+	img {
+		margin-left: 5px;
+	}
+}
+
+.back-link {
+	cursor: pointer;
+}
+
+.card-front,
+.card-back {
+	display: flex;
+	flex-direction: column;
+	padding: 23px 0 23px 25px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	backface-visibility: hidden;
+	transition: transform .6s linear;
+}
+
+.first-position {
+
+	.card-front {
+		transform: perspective(600px) rotateY(0deg);
+	}
+
+	.card-back {
+		transform: perspective(600px) rotateY(180deg);
+	}
+}
+
+.second-position {
+
+	.card-front {
+		transform: perspective(600px) rotateY(-180deg);
+	}
+
+	.card-back {
+		transform: perspective(600px) rotateY(0deg);
+	}
+
+}
+
+.product-card__subtitle {
+	font-weight: 700;
+	font-size: 36px;
+}
+
+.back {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+
+.product-card__duration {
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	margin-bottom: 55px;
+	line-height: 110%;
+}
+
+.product-card__price {
+	font-weight: 700;
+	font-weight: 700;
+	font-size: 20px;
+
+	span {
+		font-size: 30px;
+	}
+}
+
+.product-card__pay {
+	width: 134px;
+	height: 50px;
+	border-radius: 30px;
+	border: none;
+	box-shadow: 0px 10px 40px rgba(26, 13, 47, 0.25);
+	font-family: roboto-my, sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	color: #473A94;
+	margin-top: 6px;
+	margin-bottom: 13px;
+}
+
+.product-card__img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.product-card__content {
+	margin-top: 20px;
+	font-family: roboto-my, sans-serif;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 200%;
+}
