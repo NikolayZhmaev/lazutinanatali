@@ -40,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	let select = function () {
 		let selectHeader = document.querySelectorAll('.select__header');
 		let selectItem = document.querySelectorAll('.select__item');
+		let menu = document.querySelector('.img-programs');
+		let programs = document.querySelector('.img-menu');
 
 
 		selectHeader.forEach(item => {
@@ -62,6 +64,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			currentText.innerText = text;
 			this.innerText = selectCurrent;
 			select.classList.remove('is-active');
+			if (text == 'Меню для похудения') {
+				$('.img-menu').addClass('choice-active');
+				$('.img-menu__next').addClass('choice-active');
+				$('.img-programs').removeClass('choice-active');
+
+			} else if (text == 'Комплексы тренировок') {
+				$('.img-programs').addClass('choice-active');
+				$('.img-menu').removeClass('choice-active');
+				$('.img-menu__next').removeClass('choice-active');
+
+			}
+
 		}
 	};
 
@@ -73,21 +87,42 @@ document.addEventListener('DOMContentLoaded', () => {
 			let front_link = item.querySelector('.front-link'),
 				back_link = item.querySelector('.back-link');
 
-			front_link.addEventListener('click', function(){
-				console.log('клик фронт');
+			front_link.addEventListener('click', function () {
 				$(item).removeClass('first-position').addClass('second-position');
 			});
 
-			back_link.addEventListener('click', function(){
-				console.log('клик бэк');
+			back_link.addEventListener('click', function () {
 				$(item).removeClass('second-position').addClass('first-position');
 			});
 		});
-
-		
 	};
 
 	card();
+
+
+	
+
+
+	swiperText.on('slideChange', function () {
+		console.log(swiperText.activeIndex);
+		if (swiperText.activeIndex == 2) {
+			
+			$('.img-menu__next').animate({"left":"90px"}, 2500);
+		} else {
+			$('.img-menu__next').animate({"left":"-190px"}, "slow");
+		}
+		
+	} );
+
+
+	
+
+
+
+
+
+
+
 
 
 
