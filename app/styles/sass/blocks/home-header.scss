@@ -31,7 +31,8 @@ html {
 .home-aside {
 	background-color: $leftpanel;
 	height: 100%;
-	width: $size;
+	// width: $size;
+	width: 4%;
 	position: absolute;
 	top: 0;
 	display: flex;
@@ -49,7 +50,7 @@ html {
 }
 
 .soc-linc {
-	font-family: felidae-my, serif;
+	font-family: felidae-my, sans-serif;
 	font-size: 20px;
 	color: #42869C;
 	text-decoration: none;
@@ -62,5 +63,40 @@ html {
 .soc-linc:hover {
 	color: #000;
 	transition: all .25s ease-out;
+
+}
+
+.right-aside {
+
+	background: transparent;
+	height: 100%;
+	width: 10%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 10;
+	padding-top: 100px;
+	padding-bottom: 40px;
+}
+
+.slider-pagination-count {
+	font-family: anekBangla-my, sans-serif;
+	font-weight: 400;
+	font-size: 24px;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: #C4D1E4;
+	height: 80px;
+	.current {
+		font-weight: 500;
+		font-size: 50px;
+		color: $accent;
+		display: inline-block;
+
+	}
 
 }

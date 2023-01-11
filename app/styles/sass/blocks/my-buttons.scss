@@ -1,0 +1,83 @@
+.button__programs,
+.button__consultation {
+	position: relative;
+	height: 70px;
+	width: 250px;
+	border: none;
+	background: linear-gradient(180deg, #52B9A6 0%, #4CC4AE 100%);
+	box-shadow: 0px 10px 40px #B4E9D3;
+	border-radius: 50px;
+	font-family: akshar-my, sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	color: #FFFFFF;
+}
+
+.button__programs::before,
+.button__consultation::before {
+	content: 'Мои программы';
+	color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50px;
+	background: linear-gradient(180deg, #299380 0%, #3DC5AC 100%);
+	box-shadow: 0px 10px 40px #B4E9D3;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	width: 100%;
+	transition: opacity .5s;
+}
+
+.button__consultation::before {
+	content: 'Консультация';
+}
+
+.button__programs:hover:before,
+.button__consultation:hover:before {
+	opacity: 1;
+}
+
+.button-wight__consultation {
+	position: relative;
+	height: 70px;
+	width: 250px;
+	border: solid 1px #8ACBB0;
+	background: transparent;	
+	
+	border-radius: 50px;
+	font-family: akshar-my, sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	color: #4EC0AC;
+	
+}
+
+.button-wight__consultation:hover {
+	color: #3d8a7c;
+	box-shadow: 0px 10px 40px #B4E9D3;
+	transition: all .25s ease-out;
+}
+
+.link__aboutme {
+	text-decoration: none;
+	color: $accent;
+	font-family: akshar-my, sans-serif;
+	font-weight: 400;
+	font-size: 18px;
+	transition: all .25s ease-out;
+	cursor: pointer;
+
+	img {
+		margin-left: 12px;
+		
+	}
+
+	&:hover {
+		color: #2A9481;
+		transition: all .25s ease-out;
+	}
+}

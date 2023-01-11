@@ -1,7 +1,7 @@
 //SLIDER
 
 .slider-container {
-	padding-left: $size;
+	padding-left: 4%;
 	height: 100%;
 	width: 100%;
 	position: relative;
@@ -15,7 +15,8 @@
 	display: flex;
 	align-items: center;
 	left: $size;
-	background-color: #666;
+	background: transparent;
+	// background-color: #666;
 	z-index: 9;
 	padding-left: 90px;
 	width: 100%;
@@ -23,23 +24,14 @@
 
 .slider-bottom__text {
 	flex: 0 1 auto;
-	font-family: akshar-my, serif;
+	font-family: akshar-my, sans-serif;
 	font-weight: 400;
-	font-size: 10px;
+	font-size: 12px;
+	text-transform: uppercase;
 	color: #49576A;
 }
 
-.slider-pagination {
-	flex: 0 0 200px;
-}
 
-.slider-scrollbar {
-	flex: 1 0 0;
-}
-
-.slider-navigation {
-	flex: 0 0 140px;
-}
 
 .slider-img {
 	height: 100%;
@@ -70,4 +62,99 @@
 	display: flex;
 	justify-content: space-between;
 	
+}
+
+//PAGINATION
+
+.slider-pagination {
+	position: relative;
+	flex: 0 0 200px;
+	display: flex;
+	justify-content: center;
+	height: 100px;
+	align-items: center;
+	.swiper-pagination {
+		position: relative;
+	}
+	.swiper-pagination-bullet {
+		width: 7px;
+		height: 7px;
+		opacity: 1;
+		background-color: #C4D1E4;
+		margin: 0 10px !important;
+	}
+
+	.swiper-pagination-bullet-active {
+		background-color: $accent;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 19px;
+			height: 19px;
+			border-radius: 100%;
+			left: -6px;
+			top: -6px;
+			border: 1px solid $accent;
+			
+
+		}
+	}
+}
+
+//SCROLLBAR
+
+.slider-scrollbar {
+	position: relative;
+	flex: 500px 0 0;
+
+	.swiper-scrollbar {
+		height: 2px;
+		background-color: rgba($color: #C4D1E4, $alpha: .2)
+
+	}
+
+	.swiper-scrollbar-drag{
+		height: 4px;
+		background-color: $accent;
+		top: -1px;
+		
+
+	}
+}
+
+//NAVIGATION
+
+.slider-navigation {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	width: 100px;
+	height: 44px;
+
+	.swiper-button-next,
+	.swiper-button-prev {
+		width: 44px;
+		height: 44px;
+		color: $accent;
+		border-radius: 100%;
+		border: 1px solid $accent;
+		&::after {
+			font-size: 12px;
+		}
+		&.swiper-button-disabled {
+			opacity: 1;
+			color: #C4D1E4;
+			border-color: #C4D1E4;
+		}
+	}
+
+	.swiper-button-prev {
+		left: 0;
+	}
+
+	.swiper-button-next {
+		right: 0;
+	}
 }

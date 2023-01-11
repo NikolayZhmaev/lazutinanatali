@@ -43,6 +43,7 @@
 		"webpack-stream": "^7.0.0"
 	},
 	"dependencies": {
+		"gsap": "^3.11.4",
 		"jquery": "^3.6.3",
 		"swiper": "^8.4.5"
 	}

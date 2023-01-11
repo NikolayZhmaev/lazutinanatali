@@ -17,21 +17,61 @@ import {
 
 Swiper.use([Parallax, Mousewheel, Controller, Pagination, Scrollbar, Navigation]);
 
+import { gsap, Power2 }  from 'gsap';
+
 document.addEventListener('DOMContentLoaded', () => {
 
 	const swiperIMG = new Swiper('.slider-img', {
 		loop: false,
 		speed: 2400,
 		parallax: true,
+		pagination: {
+			el: '.slider-pagination-count .total',
+			type: 'custom',
+			renderCustom: function (swiper, current, total) {
+				let totalress = total >=10 ? total : `0${total}`;
+				return totalress;
+			}
+		}
 	});
 
 	const swiperText = new Swiper('.slider-text', {
+		direction: 'horizontal',
+		centeredSlides: true,
+		slidesPerView: 1,
+
 		loop: false,
 		speed: 2400,
 		mousewheel: {
 			invert: false,
-		}
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+		},
+		scrollbar: {
+			el: '.swiper-scrollbar',
+			draggable: true
+		},
+		navigation: {
+			nextEl: '#button-next-text',
+			prevEl: '#button-prev-text',
 
+		},
+
+	});
+
+	const swiperPortfolio = new Swiper('.swiper-portfolio', {
+		loop: true,
+		slidesPerView: 'auto',
+		
+		speed: 1000,
+		spaceBetween: 24,
+		navigation: {
+			nextEl: '#button-next-portfolio',
+			prevEl: '#button-prev-portfolio',
+
+		},
 	});
 
 	swiperIMG.controller.control = swiperText;
@@ -67,13 +107,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			if (text == 'Меню для похудения') {
 				$('.img-menu').addClass('choice-active');
 				$('.img-menu__next').addClass('choice-active');
+				$('.img-programs__next').removeClass('choice-active');
 				$('.img-programs').removeClass('choice-active');
 
 			} else if (text == 'Комплексы тренировок') {
 				$('.img-programs').addClass('choice-active');
+				$('.img-programs__next').addClass('choice-active');
 				$('.img-menu').removeClass('choice-active');
 				$('.img-menu__next').removeClass('choice-active');
-
 			}
 
 		}
@@ -99,23 +140,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	card();
 
+	function aboutme() {
+		let linkAboutme = document.querySelector('.link__aboutme');
+		linkAboutme.addEventListener('click', goAbout);
 
-	
-
-
-	swiperText.on('slideChange', function () {
-		console.log(swiperText.activeIndex);
-		if (swiperText.activeIndex == 2) {
-			
-			$('.img-menu__next').animate({"left":"90px"}, 2500);
-		} else {
-			$('.img-menu__next').animate({"left":"-190px"}, "slow");
+		function goAbout() {
+			swiperText.slideTo(3, 2400);
 		}
-		
-	} );
+	}
+
+	aboutme();
 
 
-	
+	//Slide Change
+	let curnum = document.querySelector('.slider-pagination-count .current');
+	swiperText.on('slideChange', function () {
+		let ind = swiperText.realIndex + 1,
+		indRes = ind >= 10 ? ind : `0${ind}`;
+		gsap.to(curnum, .2, {
+			force3D: true,
+			y: -10,
+			opacity: 0,
+			ease: Power2.easeInOut,
+			onComplete: function() {
+				gsap.to(curnum, .1, {
+					force3D: true,
+					y: 10
+				});
+				curnum.innerHTML = indRes;
+			}
+		});
+		gsap.to(curnum, .2, {
+			force3D: true,
+			y: 0,
+			opacity: 1,
+			ease: Power2.easeInOut,
+			delay: .3
+		});
+
+		if (swiperText.activeIndex == 2) {
+			$('.img-menu__next').animate({
+				"left": "50px"
+			}, 2500);
+			$('.img-programs__next').animate({
+				"left": "50px"
+			}, 2500);
+
+		} else {
+			$('.img-menu__next').animate({
+				"left": "-160px"
+			}, "slow");
+			$('.img-programs__next').animate({
+				"left": "-225px"
+			}, "slow");
+		}
+
+	});
+
+
+
+
+
 
 
 
